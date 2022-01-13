@@ -1,19 +1,24 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { Container } from "@chakra-ui/react";
 import { Form } from "./Form";
 import { UploadImg } from "./UploadImg";
 
 export const UserForm = () => {
-  const [ user, setUser ] = useState( {
-    img: '',
-    name: '',
-    phone: '',
-    email: ''
-  } )
+  const [user, setUser] = useState({
+    img: "",
+    name: "",
+    phone: "",
+    email: "",
+  });
 
-  const handleChange = ( e ) => {
-    setUser( {...user, [e.target.name]: e.target.value } );
-  }
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log( user );
+  };
 
   return (
     <Container
@@ -24,8 +29,7 @@ export const UserForm = () => {
     >
       <UploadImg />
 
-      <Form handleChange={handleChange}/>
-      
+      <Form handleChange={handleChange} handleSubmit={handleSubmit} />
     </Container>
   );
 };
