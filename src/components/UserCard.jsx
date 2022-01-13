@@ -14,7 +14,7 @@ export const UserCard = () => {
       >
           <Image
             borderRadius="full"
-            boxSize="130px"
+            boxSize="100px"
             src="https://bit.ly/dan-abramov"
             alt="Dan Abramov"
           />
