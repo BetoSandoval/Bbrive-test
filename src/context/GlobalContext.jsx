@@ -36,6 +36,10 @@ const initialState = {
 export const GlobalContext = createContext( initialState );
 
 export const ContextProvider = ( { children } ) => {
+    const addUser = () => {
+        console.log('Añadiendo empleado');
+    }
+
     return(
         <GlobalContext.Provider value={{...initialState}}>
             {children}
