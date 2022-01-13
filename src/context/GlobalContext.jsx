@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-export const GlobalContext = createContext({
+const initialState = {
     users: [
         {
             id: 1,
@@ -31,7 +31,9 @@ export const GlobalContext = createContext({
             email: "tobias.funke@reqres.in",
         }
     ]
-});
+}
+
+export const GlobalContext = createContext( initialState );
 
 export const ContextProvider = ( { children } ) => {
     return(
