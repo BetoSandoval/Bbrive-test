@@ -47,7 +47,7 @@ export const ContextProvider = ( { children } ) => {
     }
 
     return(
-        <GlobalContext.Provider value={{...initialState, addUser}}>
+        <GlobalContext.Provider value={{...state, addUser}}>
             {children}
         </GlobalContext.Provider>
     )
