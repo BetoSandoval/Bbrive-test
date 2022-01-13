@@ -1,5 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import { UserListContainer } from "./components/UserListContainer";
+import { Routes, Route, Link } from "react-router-dom";
+import { UserForm } from "./components/UserForm";
 
 function App() {
   return (
@@ -8,7 +10,10 @@ function App() {
         + Agregar nuevo empleado
       </Button>
 
-      <UserListContainer/>
+      <Routes>
+        <Route path="/" element={<UserListContainer/>} exact />
+        <Route path="/add" element={<UserForm/>} />
+      </Routes>
     </>
   );
 }
