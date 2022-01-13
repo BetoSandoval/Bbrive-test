@@ -1,4 +1,4 @@
 export default function appReducer(state, action) {
-    console.log()
+    console.log(state, action);
     
 }
