@@ -37,8 +37,8 @@ export const GlobalContext = createContext( initialState );
 
 export const ContextProvider = ( { children } ) => {
     return(
-        <GlobalContext>
+        <GlobalContext.Provider value={{...initialState}}>
             {children}
-        </GlobalContext>
+        </GlobalContext.Provider>
     )
 }
