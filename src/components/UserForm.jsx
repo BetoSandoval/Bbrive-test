@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { GlobalContext } from "../context/GlobalContext";
 import { Container } from "@chakra-ui/react";
 import { Form } from "./Form";
 import { UploadImg } from "./UploadImg";
@@ -11,13 +12,16 @@ export const UserForm = () => {
     email: "",
   });
 
+  const { addUser } = useContext( GlobalContext )
+
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
+    addUser();
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log( user );
+    addUser(user);
   };
 
   return (
