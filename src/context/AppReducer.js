@@ -1,20 +1,18 @@
 export default function appReducer(state, action) {
+  console.log(state, action);
 
-    console.log(state, action)
-    return {
+  switch (action.type) {
+    case "ADD_USER":
+      return {
         users: [...state.users, action.payload]
+      };
+
+    case 'DELETE_USER':
+    return {
+        users: []
     }
 
-
-    // switch (action.type) {
-    //     case 'ADD_USER':
-    //         return {
-    //             ...state,
-    //             users: [...state.users, action.payload]
-    //         }
-
-    //     default:
-    //         break;
-    // }
-    
+    default:
+      break;
+  }
 }
