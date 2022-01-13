@@ -6,6 +6,7 @@ import { UploadImg } from "./UploadImg";
 
 export const UserForm = () => {
   const [user, setUser] = useState({
+    id: '',
     img: "",
     name: "",
     phone: "",
@@ -15,7 +16,7 @@ export const UserForm = () => {
   const { addUser } = useContext( GlobalContext )
 
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value } );
     addUser();
   };
 
