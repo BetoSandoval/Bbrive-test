@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useReducer } from "react";
 
 const initialState = {
     users: [
@@ -36,6 +36,8 @@ const initialState = {
 export const GlobalContext = createContext( initialState );
 
 export const ContextProvider = ( { children } ) => {
+    const [state, dispatch] = useReducer(reducer, initialState, init);
+    
     const addUser = ( user ) => {
         console.log(user);
     }
