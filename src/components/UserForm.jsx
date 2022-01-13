@@ -1,8 +1,20 @@
+import { useState } from 'react';
 import { Container, Button } from "@chakra-ui/react";
 import { Form } from "./Form";
 import { UploadImg } from "./UploadImg";
 
 export const UserForm = () => {
+  const [ user, setUser ] = useState( {
+    img: '',
+    name: '',
+    phone: '',
+    email: ''
+  } )
+
+  const handleChange = ( e ) => {
+    setUser( {...user, [e.target.name]: e.target.value } );
+  }
+
   return (
     <Container
       border="1px"
@@ -13,7 +25,7 @@ export const UserForm = () => {
     >
       <UploadImg />
 
-      <Form/>
+      <Form handleChange={handleChange}/>
       
       <Button colorScheme="blue" mb={5}>
         Crear nuevo Empleado
