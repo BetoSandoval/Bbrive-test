@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import {ContextProvider} from "./context/GlobalContext";
+import { UserListContainer } from "./components/UserListContainer";
+import { UserForm } from "./components/UserForm";
+import { Header } from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContextProvider>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<UserListContainer />} exact />
+        <Route path="/add" element={<UserForm />} />
+        <Route path="/edit/:id" element={<UserForm />} />
+      </Routes>
+    </ContextProvider>
   );
 }
 
