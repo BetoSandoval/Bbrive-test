@@ -6,27 +6,29 @@ import {
   Center,
 } from "@chakra-ui/react";
 
-export const Form = ({ handleChange, handleSubmit }) => {
+export const Form = ({ handleChange, handleSubmit, user }) => {
   return (
     <FormControl  padding="4" mb={5}>
       <form onSubmit={handleSubmit}>
-        <FormLabel htmlFor="email">Nombre Completo</FormLabel>
+        <FormLabel htmlFor="Text">{ user.id ? 'Edita el nombre' : 'Nombre Completo'}</FormLabel>
         <Input
           onChange={handleChange}
           type="text"
           name="name"
           bg="white.100"
           mb={5}
+          value={user.name}
         />
-        <FormLabel htmlFor="email">Teléfono</FormLabel>
+        <FormLabel htmlFor="Text">{ user.id ? 'Edita el telefono' : 'Telefono'}</FormLabel>
         <Input
           onChange={handleChange}
           type="text"
           name="phone"
           bg="white.100"
           mb={5}
+          value={user.phone}
         />
-        <FormLabel htmlFor="email">Dirección de Email</FormLabel>
+        <FormLabel htmlFor="email">{ user.id ? 'Edita el E-mail' : 'E-mai'}</FormLabel>
         <Input
           onChange={handleChange}
           type="text"
@@ -35,11 +37,12 @@ export const Form = ({ handleChange, handleSubmit }) => {
           type="email"
           bg="white.100"
           mb={10}
+          value={user.email}
         />
 
         <Center>
           <Button type='submit' colorScheme="blue" mb={5}>
-            Crear nuevo Empleado
+          { user.id ? 'Editar Info' : 'Crear Nuevo Empleado'}
           </Button>
         </Center>
       </form>

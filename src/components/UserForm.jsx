@@ -1,12 +1,14 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalContext";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Container } from "@chakra-ui/react";
 import { Form } from "./Form";
 import { UploadImg } from "./UploadImg";
 
 export const UserForm = () => {
   const navigate = useNavigate();
+  const params = useParams();
+
   const [user, setUser] = useState({
     id: '',
     img: "",
@@ -15,7 +17,7 @@ export const UserForm = () => {
     email: "",
   });
 
-  const { addUser } = useContext( GlobalContext )
+  const { addUser, users, updateUser } = useContext( GlobalContext )
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value } );
@@ -23,9 +25,23 @@ export const UserForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addUser(user);
+
+    if(user.id){
+      updateUser(user);
+    }else{
+      addUser(user);
+    }
     navigate("/");
   };
+
+  useEffect( () => {
+    const userFound = users.find( user => user.id === params.id );
+
+    if(userFound){
+      setUser(userFound)
+    }
+
+  }, [params.id, users] );
 
   return (
     <Container
@@ -36,7 +52,7 @@ export const UserForm = () => {
     >
       <UploadImg />
 
-      <Form handleChange={handleChange} handleSubmit={handleSubmit} />
+      <Form handleChange={handleChange} handleSubmit={handleSubmit} user={user}/>
     </Container>
   );
 };
