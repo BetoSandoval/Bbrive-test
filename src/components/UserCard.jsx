@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Button, Image, Text, Stack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-export const UserCard = ({ img, name, phone, email }) => {
+export const UserCard = ({ img, name, phone, email, id, deleteUser }) => {
   return (
     <Box
       padding="4"
@@ -24,10 +25,12 @@ export const UserCard = ({ img, name, phone, email }) => {
       </Box>
 
       <Stack direction="row" spacing={4}>
-        <Button colorScheme="blue" variant="outline">
-          Editar
-        </Button>
-        <Button colorScheme="pink" variant="solid">
+        <Link to={`/edit/${id}`}>
+          <Button colorScheme="blue" variant="outline">
+            Editar
+          </Button>
+        </Link>
+        <Button onClick={() => deleteUser(id)} colorScheme="pink" variant="solid">
           Eliminar
         </Button>
       </Stack>
