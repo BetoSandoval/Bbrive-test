@@ -5,15 +5,10 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-<<<<<<< HEAD
-    <App />,
-  document.getElementById('root')
-=======
   <BrowserRouter>
     <ChakraProvider>
       <App />
     </ChakraProvider>
   </BrowserRouter>,
   document.getElementById("root")
->>>>>>> dev
 );
