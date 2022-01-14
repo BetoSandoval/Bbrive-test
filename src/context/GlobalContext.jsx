@@ -42,12 +42,18 @@ export const ContextProvider = ( { children } ) => {
     const addUser = ( user ) => {
         dispatch( {
             type: 'ADD_USER',
-            payload: {id: 5, nombre: 'Gemma'}
+            payload: user
         } );
     }
 
+    const deleteUser = () => {
+        dispatch({
+            type: 'DELETE_USER'
+        })
+    }
+
     return(
-        <GlobalContext.Provider value={{...state, addUser }}>
+        <GlobalContext.Provider value={{...state, addUser, deleteUser }}>
             {children}
         </GlobalContext.Provider>
     )

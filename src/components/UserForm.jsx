@@ -17,7 +17,6 @@ export const UserForm = () => {
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value } );
-    addUser();
   };
 
   const handleSubmit = (e) => {

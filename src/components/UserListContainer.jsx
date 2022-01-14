@@ -5,11 +5,12 @@ import { Container } from "@chakra-ui/react";
 
 export const UserListContainer = () => {
 
-  const {users} = useContext(GlobalContext);
+  const {users, deleteUser} = useContext(GlobalContext);
 
   return (
     <>
       <Container maxW="xl" mt={50} centerContent>
+        <button onClick={() => deleteUser()}>delte all</button>
         { users.map( user => {
           return (
           <UserCard
