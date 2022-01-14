@@ -4,15 +4,30 @@ import {
   Input,
   Button,
   Center,
+  Box,
 } from "@chakra-ui/react";
-import { UploadImg } from "./UploadImg";
+import { AiOutlineUpload } from "react-icons/ai";
 
 export const Form = ({ handleChange, handleSubmit, user }) => {
   return (
     <FormControl padding="4" mb={5}>
       <form onSubmit={handleSubmit}>
+        <Center>
+          <Box
+            bg="white"
+            w="50%"
+            p={4}
+            border="1px"
+            borderRadius="6"
+            borderColor="gray.200"
+          >
+            <Center fontSize="50px">
+              <AiOutlineUpload />
+            </Center>
 
-        <UploadImg />
+            <Input type='file' name="img" onChange={handleChange}/>
+          </Box>
+        </Center>
 
         <FormLabel htmlFor="Text">
           {user.id ? "Edita el nombre" : "Nombre Completo"}

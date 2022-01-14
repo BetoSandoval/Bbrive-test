@@ -15,6 +15,7 @@ export default function appReducer(state, action) {
      const updatedUsers = state.users.map( user => {
         if(user.id === updatedUser.id ){
           user.name = updatedUser.name
+          user.img = updatedUser.img
           user.phone = updatedUser.phone
           user.email = updatedUser.email
         }
