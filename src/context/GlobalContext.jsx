@@ -1,5 +1,6 @@
 import { createContext, useReducer } from "react";
 import appReducer from './AppReducer';
+import { v4 } from "uuid";
 
 const initialState = {
     users: [
@@ -42,7 +43,7 @@ export const ContextProvider = ( { children } ) => {
     const addUser = ( user ) => {
         dispatch( {
             type: 'ADD_USER',
-            payload: user
+            payload: { ...user, id: v4() }
         } );
     }
 

@@ -1,10 +1,12 @@
 import { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
+import { useNavigate } from 'react-router-dom';
 import { Container } from "@chakra-ui/react";
 import { Form } from "./Form";
 import { UploadImg } from "./UploadImg";
 
 export const UserForm = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     id: '',
     img: "",
@@ -22,6 +24,7 @@ export const UserForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addUser(user);
+    navigate("/");
   };
 
   return (
