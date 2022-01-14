@@ -5,12 +5,18 @@ import {
   Button,
   Center,
 } from "@chakra-ui/react";
+import { UploadImg } from "./UploadImg";
 
 export const Form = ({ handleChange, handleSubmit, user }) => {
   return (
-    <FormControl  padding="4" mb={5}>
+    <FormControl padding="4" mb={5}>
       <form onSubmit={handleSubmit}>
-        <FormLabel htmlFor="Text">{ user.id ? 'Edita el nombre' : 'Nombre Completo'}</FormLabel>
+
+        <UploadImg />
+
+        <FormLabel htmlFor="Text">
+          {user.id ? "Edita el nombre" : "Nombre Completo"}
+        </FormLabel>
         <Input
           onChange={handleChange}
           type="text"
@@ -19,7 +25,9 @@ export const Form = ({ handleChange, handleSubmit, user }) => {
           mb={5}
           value={user.name}
         />
-        <FormLabel htmlFor="Text">{ user.id ? 'Edita el telefono' : 'Telefono'}</FormLabel>
+        <FormLabel htmlFor="Text">
+          {user.id ? "Edita el telefono" : "Telefono"}
+        </FormLabel>
         <Input
           onChange={handleChange}
           type="text"
@@ -28,7 +36,9 @@ export const Form = ({ handleChange, handleSubmit, user }) => {
           mb={5}
           value={user.phone}
         />
-        <FormLabel htmlFor="email">{ user.id ? 'Edita el E-mail' : 'E-mai'}</FormLabel>
+        <FormLabel htmlFor="email">
+          {user.id ? "Edita el E-mail" : "E-mai"}
+        </FormLabel>
         <Input
           onChange={handleChange}
           type="text"
@@ -41,8 +51,8 @@ export const Form = ({ handleChange, handleSubmit, user }) => {
         />
 
         <Center>
-          <Button type='submit' colorScheme="blue" mb={5}>
-          { user.id ? 'Editar Info' : 'Crear Nuevo Empleado'}
+          <Button type="submit" colorScheme="blue" mb={5}>
+            {user.id ? "Editar Info" : "Crear Nuevo Empleado"}
           </Button>
         </Center>
       </form>

@@ -3,7 +3,6 @@ import { GlobalContext } from "../context/GlobalContext";
 import { useNavigate, useParams } from 'react-router-dom';
 import { Container } from "@chakra-ui/react";
 import { Form } from "./Form";
-import { UploadImg } from "./UploadImg";
 
 export const UserForm = () => {
   const navigate = useNavigate();
@@ -50,8 +49,6 @@ export const UserForm = () => {
       borderRadius="6"
       bg="gray.100"
     >
-      <UploadImg />
-
       <Form handleChange={handleChange} handleSubmit={handleSubmit} user={user}/>
     </Container>
   );
