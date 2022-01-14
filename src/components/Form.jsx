@@ -56,7 +56,6 @@ export const Form = ({ handleChange, handleSubmit, user }) => {
         </FormLabel>
         <Input
           onChange={handleChange}
-          type="text"
           name="email"
           id="email"
           type="email"
